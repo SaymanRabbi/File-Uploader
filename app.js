@@ -1,8 +1,8 @@
 const express = require('express');
+const { uploadFile } = require('./uploadDrive');
 const { upload } = require('./uploadFile');
 const app = express();
-app.post('/file-upload',upload.single('doc'),(req,res)=>{
-    console.log(req);
+app.post('/file-upload',upload.single('doc'),uploadFile,(req,res)=>{
   res.send('hello world')
 })
 
